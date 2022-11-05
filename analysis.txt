@@ -1,0 +1,22 @@
+product 
+        name
+        subtitle
+        image *
+        price
+        description
+        vedio link
+        reviews
+        brand(name,image)
+        SKU
+        flag (new, features,sale)
+        category(name, image)
+
+user
+        name
+        Email
+        contact number*
+        Delivery Address*
+        image
+        password
+        username
+        
