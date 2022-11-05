@@ -21,6 +21,8 @@ class Product(models.Model):
     vediolink=models.URLField()
     SKU=models.IntegerField()
     flag =models.CharField(max_length=12,choices=flagChoices)
+    brand = models.ForeignKey('Brand',on_delete=models.SET_NULL,null=True,blank=True,related_name='product_brand')
+    category = models.ForeignKey('Category',on_delete=models.SET_NULL,null=True,blank=True,related_name='product_category')
 
     def __str__(self):
          return self.name
