@@ -30,6 +30,7 @@ class Product(models.Model):
 
 
 class ProductReviews(models.Model):
+       product = models.ForeignKey(Product , on_delete=models.CASCADE, related_name='product_review' , null=True,blank=True)
        name=models.CharField(max_length=100)
        date=models.DateTimeField(default=timezone.now)
        image=models.ImageField(upload_to ='reviews')
