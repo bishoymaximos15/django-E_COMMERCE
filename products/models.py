@@ -2,7 +2,7 @@ from distutils.command.upload import upload
 from time import timezone
 from django.db import models
 from django.utils import timezone
-
+from django.utils.text import slugify
 
 
 # Create your models here.
@@ -24,8 +24,14 @@ class Product(models.Model):
     brand = models.ForeignKey('Brand',on_delete=models.SET_NULL,null=True,blank=True,related_name='product_brand')
     category = models.ForeignKey('Category',on_delete=models.SET_NULL,null=True,blank=True,related_name='product_category')
 
+    slug = models.SlugField(null=True,blank=True)
+
     def __str__(self):
          return self.name
+     
+    def save(self, *args, **kwargs):
+       self.slug = slugify(self.name)   
+       super(Product, self).save(*args, **kwargs) 
              
 
 
