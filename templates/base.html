@@ -44,6 +44,10 @@
 
         <!-- CUSTOM -->
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        {% block css %}
+        
+        {% endblock css %}
+        
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
@@ -1073,6 +1077,7 @@
                     JS LINK PART START
         =======================================-->
         <!-- VENDOR -->
+        
         <script src="{% static 'vendor/bootstrap/jquery-1.12.4.min.js' %} "></script>
         <script src="{% static 'vendor/bootstrap/popper.min.js' %} "></script>
         <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %} "></script>
