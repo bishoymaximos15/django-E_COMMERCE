@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Product
+from . models import Product , ProductReviews
 from django.views.generic import ListView , DetailView
 
 
@@ -15,12 +15,18 @@ class ProductsDetail(DetailView):
 
 
 
-
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context["reviews"] = ProductReviews.objects.filter(product=self.get_object())
+            context['related'] = Product.objects.filter(category=self.get_object().category)
+            return context
+        
 
 
 
 # def product_list(request):    
 #         products=Product.objects.all()
+#        sdfsdfsf
 #         return render (request,'products.html',{'products':products})
 
 
