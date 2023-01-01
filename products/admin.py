@@ -7,7 +7,15 @@ class ProductModelAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
     summernote_fields = ('description',)
 
 
-admin.site.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display=['name','price','category','brand']
+    list_filter = ['category','brand']
+    search_fields = ['name','subtitle','description']
+
+
+
+
+admin.site.register(Product,ProductAdmin)
 admin.site.register(ProductReviews)
 admin.site.register(Brand)
 admin.site.register(Category)
