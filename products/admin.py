@@ -13,10 +13,15 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ['name','subtitle','description']
 
 
+class ProductReviewsAdmin(admin.ModelAdmin):
+    list_display=['product','rate','date','reviews']
+    list_filter = ['rate']
+    search_fields = ['name','product','reviews']  
+
 
 
 admin.site.register(Product,ProductAdmin)
-admin.site.register(ProductReviews)
+admin.site.register(ProductReviews,ProductReviewsAdmin)
 admin.site.register(Brand)
 admin.site.register(Category)
 
