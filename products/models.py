@@ -33,7 +33,15 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
        self.slug = slugify(self.name)   
        super(Product, self).save(*args, **kwargs) 
-             
+        
+        
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product,related_name='product_image',on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='products/') 
+    
+    def __str__(self):
+        return str(self.product)
+     
 
 
 class ProductReviews(models.Model):
