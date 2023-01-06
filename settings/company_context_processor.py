@@ -1,0 +1,7 @@
+from .models import Company
+
+
+
+def get_data(request):
+    data = Company.objects.last()
+    return {'data':data}
