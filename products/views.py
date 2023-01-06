@@ -8,6 +8,7 @@ from django.views.generic import ListView , DetailView
 class ProductsList(ListView):
         model = Product
         context_object_name = 'products'
+        paginate_by = 1
 
 class ProductsDetail(DetailView):
         model = Product
