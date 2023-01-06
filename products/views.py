@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Product , ProductReviews
+from . models import Product , ProductReviews , Brand , Category
 from django.views.generic import ListView , DetailView
 
 
@@ -24,15 +24,10 @@ class ProductsDetail(DetailView):
         
 
 
+class BrandList(ListView):
+        model = Brand
+        paginate_by = 1
 
-# def product_list(request):    
-#         products=Product.objects.all()
-#        sdfsdfsf
-#         return render (request,'products.html',{'products':products})
-
-
-
-# def product_detail(request,id):
-#         detail=Product.objects.get(id=id)
-#         return render (request,'product_detail.html',{'item':detail})
-
+class CategoryList(ListView):
+        model = Category
+        paginate_by = 1
