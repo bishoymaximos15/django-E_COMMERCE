@@ -26,7 +26,7 @@ class ProductsDetail(DetailView):
 
 class BrandList(ListView):
         model = Brand
-        paginate_by = 1
+        paginate_by = 50
 
 
 class BrandDetail(ListView):
