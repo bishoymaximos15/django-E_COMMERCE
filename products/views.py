@@ -28,6 +28,13 @@ class BrandList(ListView):
         model = Brand
         paginate_by = 1
 
+
+class BrandDetail(ListView):
+        model = Product
+        paginate_by= 2 
+        template_name = 'products/brand_detail.html'
+
+
 class CategoryList(ListView):
         model = Category
         paginate_by = 1
