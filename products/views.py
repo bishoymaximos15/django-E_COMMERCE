@@ -33,6 +33,18 @@ class BrandDetail(ListView):
         model = Product
         paginate_by= 2 
         template_name = 'products/brand_detail.html'
+        
+        def get_queryset(self):
+            brand = Brand.objects.get(id=self.kwargs['pk'])
+            data = Product.objects.filter(brand=brand)
+            return data
+    
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context["brand"] = Brand.objects.get(id=self.kwargs['pk'])
+            return context
+        
+        
 
 
 class CategoryList(ListView):
