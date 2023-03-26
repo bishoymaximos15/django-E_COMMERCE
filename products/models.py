@@ -19,7 +19,7 @@ class Product(models.Model):
     image =models.ImageField(upload_to ='product')
     price=models.FloatField()
     description=models.TextField(max_length=10000)
-    vediolink=models.URLField()
+    vediolink=models.URLField(null=True,blank=True)
     SKU=models.IntegerField()
     flag =models.CharField(max_length=12,choices=flagChoices)
     brand = models.ForeignKey('Brand',on_delete=models.SET_NULL,null=True,blank=True,related_name='product_brand')

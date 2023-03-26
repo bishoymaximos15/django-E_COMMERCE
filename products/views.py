@@ -8,7 +8,7 @@ from django.views.generic import ListView , DetailView
 class ProductsList(ListView):
         model = Product
         context_object_name = 'products'
-        paginate_by = 1
+        paginate_by = 50
 
 class ProductsDetail(DetailView):
         model = Product
@@ -49,4 +49,4 @@ class BrandDetail(ListView):
 
 class CategoryList(ListView):
         model = Category
-        paginate_by = 1
+        paginate_by = 50
