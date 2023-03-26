@@ -6,7 +6,7 @@ django.setup()
 
 
 from faker import Faker
-from products.models import Product , Brand , Category
+from products.models import Product , Brand , Category , ProductReviews
 import random
 
 
@@ -56,5 +56,21 @@ def dummy_products(n):
         )
     print(f'{n} Product Done')
 
+
+def dummy_reviews(n):
+    fake = Faker()
+    
+    for x in range(n):
+        ProductReviews.objects.create(
+            product = Product.objects.get(id=random.randint(1,1000)),
+            name = fake.name(),
+            image = 'reviews/default.jpg' , 
+            rate = random.randint(1, 5),
+            reviews = fake.text(max_nb_chars=300)
+        )
+
+    print(f'{n} Product Reviews Done')
+
 # dummy_Category(100)
-dummy_products(1000)
+# dummy_products(1000)
+dummy_reviews(3000)
