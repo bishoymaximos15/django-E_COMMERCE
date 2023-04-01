@@ -9,6 +9,7 @@ class ProductsList(ListView):
         model = Product
         context_object_name = 'products'
         paginate_by = 50
+        queryset = Product.objects.all()[:10]
 
 class ProductsDetail(DetailView):
         model = Product
