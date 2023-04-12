@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from . models import Product , ProductReviews , Brand , Category
 from django.views.generic import ListView , DetailView
-
+from .forms import ReviewForm
 
 
 
@@ -23,6 +23,19 @@ class ProductsDetail(DetailView):
             context['related'] = Product.objects.filter(category=self.get_object().category)
             return context
         
+
+def add_review(request,slug):
+        product = Product.objects.get(slug=slug)
+        form = ReviewForm(request.POST)
+
+        if form.is_valid():
+                myform = form.save(commit=False)
+                myform.product = product
+                myform.save()
+                
+        return redirect(f'/products/{slug}/') 
+
+
 
 
 class BrandList(ListView):

@@ -47,8 +47,8 @@ class ProductImage(models.Model):
 class ProductReviews(models.Model):
        product = models.ForeignKey(Product , on_delete=models.CASCADE, related_name='product_review' , null=True,blank=True)
        name=models.CharField(max_length=100)
+       email = models.EmailField(null=True,blank=True)
        date=models.DateTimeField(default=timezone.now)
-       image=models.ImageField(upload_to ='reviews')
        rate=models.IntegerField()
        reviews=models.TextField(max_length=300)
     
