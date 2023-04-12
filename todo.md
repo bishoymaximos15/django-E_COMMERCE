@@ -1,6 +1,5 @@
-- home
+
 - product add review 
-- brand detail 
 - orders
 - cart 
 - API [basics]
